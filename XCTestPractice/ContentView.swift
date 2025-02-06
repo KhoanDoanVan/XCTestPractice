@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showLeakyView = false
+    
     var body: some View {
-        ComplexInteractiveView()
+        VStack {
+            Button("Show Leaky View") {
+                showLeakyView.toggle()
+            }
+            .sheet(isPresented: $showLeakyView) {
+                LeakyView()
+            }
+        }
     }
 }
 
