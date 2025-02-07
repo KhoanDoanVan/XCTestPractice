@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showLeakyView = false
-    
+    @State private var showViewController = false
+
     var body: some View {
         VStack {
-            Button("Show Leaky View") {
-                showLeakyView.toggle()
+            Button("Open ViewController") {
+                showViewController = true
             }
-            .sheet(isPresented: $showLeakyView) {
-                LeakyView()
-            }
+        }
+        .sheet(isPresented: $showViewController) {
+            UIKitTest7ViewControllerWarpper()
         }
     }
 }

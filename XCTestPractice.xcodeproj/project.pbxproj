@@ -33,6 +33,9 @@
 		4678CF3A2D54A89F00541842 /* Exceptions for "XCTestPractice" folder in "XCTestPracticeTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				TestMemoryLeak/CapturingClosure.swift,
+				TestMemoryLeak/ViewModel.swift,
+				UIKitTestMemoryLeak/UIKitTest2.swift,
 				UITestPerformance/DetailView.swift,
 			);
 			target = 4678CE1E2D5344E500541842 /* XCTestPracticeTests */;
