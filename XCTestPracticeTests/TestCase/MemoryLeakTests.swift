@@ -68,7 +68,6 @@ class MemoryLeakTests: XCTestCase {
     private func checkViewControllerLeak2() {
         autoreleasepool {
             var viewController: UIKitTest2ViewController? = UIKitTest2ViewController()
-            weak var weakViewController = viewController
             
             DispatchQueue.main.async {
                 viewController?.dismiss(animated: false)

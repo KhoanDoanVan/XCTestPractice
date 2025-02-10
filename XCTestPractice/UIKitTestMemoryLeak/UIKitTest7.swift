@@ -23,7 +23,7 @@ class UIKitTest7ViewController: UIViewController {
     }
 }
 
-//class FixedClosureViewController: UIViewController {
+//class UIKitTest7ViewController: UIViewController {
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //

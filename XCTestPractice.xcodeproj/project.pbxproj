@@ -36,7 +36,9 @@
 				TestMemoryLeak/CapturingClosure.swift,
 				TestMemoryLeak/ViewModel.swift,
 				UIKitTestMemoryLeak/UIKitTest2.swift,
+				UIKitTestMemoryLeak/UIKitTest5.swift,
 				UITestPerformance/DetailView.swift,
+				VCTestUseBaseVCTests/BaseVCTest1.swift,
 			);
 			target = 4678CE1E2D5344E500541842 /* XCTestPracticeTests */;
 		};

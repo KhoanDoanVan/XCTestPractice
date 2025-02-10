@@ -24,7 +24,7 @@ class UIKitTest5ViewController: UIViewController {
     }
 }
 
-//class CADisplayLinkFixedViewController: UIViewController {
+//class UIKitTest5ViewController: UIViewController {
 //    var displayLink: CADisplayLink?
 //
 //    override func viewDidLoad() {
