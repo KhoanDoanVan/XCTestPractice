@@ -30,24 +30,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4678CF3A2D54A89F00541842 /* Exceptions for "XCTestPractice" folder in "XCTestPracticeTests" target */ = {
+		463DFA032D5AEFDC001F253B /* Exceptions for "XCTestPractice" folder in "XCTestPracticeTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				TestMemoryLeak/CapturingClosure.swift,
-				TestMemoryLeak/ViewModel.swift,
-				UIKitTestMemoryLeak/UIKitTest2.swift,
+				UIKitTestMemoryLeak/UIKitTest3.swift,
+				UIKitTestMemoryLeak/UIKitTest4.swift,
 				UIKitTestMemoryLeak/UIKitTest5.swift,
-				UITestPerformance/DetailView.swift,
-				VCTestUseBaseVCTests/BaseVCTest1.swift,
+				UIKitTestMemoryLeak/UIKitTest6.swift,
+				UIKitTestMemoryLeak/UIKitTest7.swift,
+				UIKitTestMemoryLeak/UIKitTest8.swift,
+				UIKitTestMemoryLeak/UIKitTest9.swift,
+				UIKitTestMemoryLeak/UIKitTest10.swift,
+				UIKitTestMemoryLeak/UIKitTest11.swift,
+				UIKitTestMemoryLeak/UIKitTest12.swift,
 			);
 			target = 4678CE1E2D5344E500541842 /* XCTestPracticeTests */;
-		};
-		4678CF3B2D54A89F00541842 /* Exceptions for "XCTestPractice" folder in "XCTestPracticeUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				UITestPerformance/DetailView.swift,
-			);
-			target = 4678CE282D5344E500541842 /* XCTestPracticeUITests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -55,8 +52,7 @@
 		4678CE112D5344E400541842 /* XCTestPractice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				4678CF3A2D54A89F00541842 /* Exceptions for "XCTestPractice" folder in "XCTestPracticeTests" target */,
-				4678CF3B2D54A89F00541842 /* Exceptions for "XCTestPractice" folder in "XCTestPracticeUITests" target */,
+				463DFA032D5AEFDC001F253B /* Exceptions for "XCTestPractice" folder in "XCTestPracticeTests" target */,
 			);
 			path = XCTestPractice;
 			sourceTree = "<group>";

@@ -8,7 +8,8 @@
 import UIKit
 import SwiftUI
 
-class UIKitTest10ViewController: UIViewController {
+// MARK: - Failed ❌
+class FUIKitTest10ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -16,7 +17,7 @@ class UIKitTest10ViewController: UIViewController {
     }
 
     func scheduleTask() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 5) { // ❌ Capturing `self` strongly
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) { // Capturing `self` strongly
             self.performTask()
         }
     }
@@ -26,15 +27,46 @@ class UIKitTest10ViewController: UIViewController {
     }
 
     deinit {
-        print("❌ DelayedViewController deinitialized") // ❌ This will never be called due to the leak
+        print("DelayedViewController deinitialized") // This will never be called due to the leak
+    }
+}
+
+// MARK: - Successfully ✅
+class SUIKitTest10ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        scheduleTask()
+    }
+
+    func scheduleTask() {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
+            self?.performTask()
+        }
+    }
+
+    func performTask() {
+        print("Task executed")
+    }
+
+    deinit {
+        print("FUIKitTest10ViewController deinitialized") // Now it will be called
     }
 }
 
 // MARK: - SwiftUI Wrapper for ViewController
-struct UIKitTest10ViewControllerWarpper: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIKitTest10ViewController {
-        return UIKitTest10ViewController()
+struct FUIKitTest10ViewControllerWarpper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> FUIKitTest10ViewController {
+        return FUIKitTest10ViewController()
     }
 
-    func updateUIViewController(_ uiViewController: UIKitTest10ViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: FUIKitTest10ViewController, context: Context) {}
+}
+
+struct SUIKitTest10ViewControllerWarpper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> SUIKitTest10ViewController {
+        return SUIKitTest10ViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: SUIKitTest10ViewController, context: Context) {}
 }

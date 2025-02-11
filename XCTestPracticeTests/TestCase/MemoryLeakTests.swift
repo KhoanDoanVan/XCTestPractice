@@ -87,10 +87,10 @@ class MemoryLeakTests: XCTestCase {
     }
     
     private func checkViewControllerLeak3() {
-        weak var weakVC: UIKitTest3ViewController?
+        weak var weakVC: FUIKitTest3ViewController?
 
         autoreleasepool {
-            let vc = UIKitTest3ViewController()
+            let vc = FUIKitTest3ViewController()
             weakVC = vc
             // Simulate lifecycle events
             vc.loadViewIfNeeded()
@@ -106,10 +106,10 @@ class MemoryLeakTests: XCTestCase {
     }
 
     private func checkViewControllerLeak4() {
-        weak var weakVC: UIKitTest4ViewController?
+        weak var weakVC: FUIKitTest4ViewController?
 
         autoreleasepool {
-            let vc = UIKitTest4ViewController()
+            let vc = FUIKitTest4ViewController()
             weakVC = vc
             vc.loadViewIfNeeded()
         }
@@ -123,10 +123,10 @@ class MemoryLeakTests: XCTestCase {
     }
 
     private func checkViewControllerLeak5() {
-        weak var weakVC: UIKitTest5ViewController?
+        weak var weakVC: FUIKitTest5ViewController?
 
         autoreleasepool {
-            let vc = UIKitTest5ViewController()
+            let vc = FUIKitTest5ViewController()
             weakVC = vc
             vc.loadViewIfNeeded()
         }
@@ -140,12 +140,12 @@ class MemoryLeakTests: XCTestCase {
     }
 
     private func checkParentViewControllerLeak6() {
-        weak var weakParentVC: UIKitTest6ViewController?
-        weak var weakChildVC: ChildViewController?
+        weak var weakParentVC: FUIKitTest6ViewController?
+        weak var weakChildVC: FChildViewController?
 
         autoreleasepool {
-            let parentVC = UIKitTest6ViewController()
-            let childVC = ChildViewController()
+            let parentVC = FUIKitTest6ViewController()
+            let childVC = FChildViewController()
 
             weakParentVC = parentVC
             weakChildVC = childVC
@@ -165,10 +165,10 @@ class MemoryLeakTests: XCTestCase {
     }
 
     private func checkNotificationLeak7() {
-        weak var weakVC: UIKitTest7ViewController?
+        weak var weakVC: FUIKitTest7ViewController?
 
         autoreleasepool {
-            let vc = UIKitTest7ViewController()
+            let vc = FUIKitTest7ViewController()
             weakVC = vc
             vc.loadViewIfNeeded()
         }

@@ -8,7 +8,8 @@
 import UIKit
 import SwiftUI
 
-class UIKitTest8ViewController: UIViewController {
+// MARK: - Failed ❌
+class FUIKitTest8ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,7 @@ class UIKitTest8ViewController: UIViewController {
     func loadData() {
         let url = URL(string: "https://jsonplaceholder.typicode.com/todos/1")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            // ❌ Problem: `self` is strongly captured inside the closure
+            // Problem: `self` is strongly captured inside the closure
             guard let data = data else { return }
             self.handleResponse(data)
         }
@@ -30,15 +31,53 @@ class UIKitTest8ViewController: UIViewController {
     }
     
     deinit {
-        print("URLSessionTestViewController deinitialized ✅")
+        print("URLSessionTestViewController deinitialized")
+    }
+}
+
+// MARK: - Successfully ✅
+class SUIKitTest8ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadData() // Call function that makes a network request
+    }
+    
+    func loadData() {
+        let url = URL(string: "https://jsonplaceholder.typicode.com/todos/1")!
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else {
+                print("ViewController deallocated before response")
+                return
+            }
+            guard let data = data else { return }
+            self.handleResponse(data)
+        }
+        task.resume()
+    }
+    
+    func handleResponse(_ data: Data) {
+        print("Data received: \(data)")
+    }
+    
+    deinit {
+        print("FUIKitTest8ViewController deinitialized")
     }
 }
 
 // MARK: - SwiftUI Wrapper for ViewController
-struct UIKitTest8ViewControllerWarpper: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIKitTest8ViewController {
-        return UIKitTest8ViewController()
+struct FUIKitTest8ViewControllerWarpper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> FUIKitTest8ViewController {
+        return FUIKitTest8ViewController()
     }
 
-    func updateUIViewController(_ uiViewController: UIKitTest8ViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: FUIKitTest8ViewController, context: Context) {}
+}
+
+struct SUIKitTest8ViewControllerWarpper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> SUIKitTest8ViewController {
+        return SUIKitTest8ViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: SUIKitTest8ViewController, context: Context) {}
 }

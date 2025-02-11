@@ -17,7 +17,10 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showViewController) {
-            UIKitTest12ViewControllerWarpper()
+            SUIKitTest3ViewControllerWarpper()
+            FUIKitTest4ViewControllerWarpper()
+            SUIKitTest5ViewControllerWarpper()
+            SUIKitTest7ViewControllerWarpper()
         }
     }
 }

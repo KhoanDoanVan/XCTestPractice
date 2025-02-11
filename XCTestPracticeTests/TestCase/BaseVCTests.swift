@@ -8,40 +8,51 @@
 import XCTest
 @testable import XCTestPractice
 
+// Check Many Views
+class AppMemoryLeakTests: BaseViewControllerTestsV2<UIViewController> {
+    override var viewControllerTypesToTest: [UIViewController.Type] {
+        return [
+            SUIKitTest3ViewController.self,
+            FUIKitTest4ViewController.self,
+            SUIKitTest5ViewController.self,
+            SUIKitTest7ViewController.self
+        ]
+    }
+}
 // CADisplayLink
-class BaseVCTest2Tests: BaseViewControllerTests<UIKitTest5ViewController> { }
+class BaseVCTest2Tests: BaseViewControllerTests<FUIKitTest5ViewController> { }
 
 // NotificationCenter
-class BaseVCTest4Tests: BaseViewControllerTests<UIKitTest7ViewController> { }
+class BaseVCTest4Tests: BaseViewControllerTests<FUIKitTest7ViewController> { }
 
 // Timer
-class BaseVCTest5Tests: BaseViewControllerTests<UIKitTest4ViewController> { }
+class BaseVCTest5Tests: BaseViewControllerTests<SUIKitTest4ViewController> { }
 
 // Closure Capture
-class BaseVCTest6Tests: BaseViewControllerTests<UIKitTest3ViewController> { }
+class BaseVCTest6Tests: BaseViewControllerTests<FUIKitTest3ViewController> { }
 
 // URLSession Completion
-class BaseVCTest7Tests: BaseViewControllerTests<UIKitTest8ViewController> { }
+class BaseVCTest7Tests: BaseViewControllerTests<FUIKitTest8ViewController> { }
 
 // Delegate Retain Cycle
-class BaseVCTest8Tests: BaseViewControllerTests<UIKitTest9ViewController> { }
+class BaseVCTest8Tests: BaseViewControllerTests<FUIKitTest9ViewController> { }
 
 // DispatchQueue.asyncAfter
-class BaseVCTest9Tests: BaseViewControllerTests<UIKitTest10ViewController> { }
+class BaseVCTest9Tests: BaseViewControllerTests<FUIKitTest10ViewController> { }
 
 // Combine Subscription Leak
-class BaseVCTest11Tests: BaseViewControllerTests<UIKitTest12ViewController> { }
+class BaseVCTest11Tests: BaseViewControllerTests<FUIKitTest12ViewController> { }
 
 // ParentChild Retain
-class BaseVCTest3Tests: BaseViewControllerTests<UIKitTest6ViewController> {
+class BaseVCTest3Tests: BaseViewControllerTests<FUIKitTest6ViewController> {
     override func createChildViewController() -> UIViewController? {
-        return ChildViewController()
+        return FChildViewController()
     }
 }
 
 // Gesture Recognizer
-class BaseVCTest10Tests: BaseViewControllerTests<UIKitTest11ViewController> {
+class BaseVCTest10Tests: BaseViewControllerTests<FUIKitTest11ViewController> {
     func testMemoryLeakOnGesture() {
-        testViewController_MemoryLeak_Function(functionToTest: #selector(UIKitTest11ViewController.leakingClosureMethod))
+        testViewController_MemoryLeak_Function(functionToTest: #selector(FUIKitTest11ViewController.leakingClosureMethod))
     }
 }
